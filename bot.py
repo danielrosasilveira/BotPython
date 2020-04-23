@@ -21,12 +21,12 @@ def especialidades(update, context):
 def inputEspecialidades(update, context):
     especialidade = lower(update.message.text)
     print(especialidade)
-    if especialidade==1 or especialidade=='insert' or especialidade=='inserir' or especialidade=='create':
+    if (especialidade==1 or especialidade=='insert' or especialidade=='inserir' or especialidade=='create'):
         message = """xpto = inserir"""
         context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
     else:
-        if especialidade==2 or especialidade=='read' or especialidade=='consultar':
+        if (especialidade==2 or especialidade=='read' or especialidade=='consultar'):
             message = "Muito obrigada pelo seu feedback!"
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
