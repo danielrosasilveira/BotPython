@@ -19,16 +19,15 @@ def especialidades(update, context):
     return STATE1
 
 def inputEspecialidades(update, context):
-    especialidade = lower(update.message.text)
+    especialidade = (update.message.text)
     print(especialidade)
     if (especialidade==1 or especialidade=='insert' or especialidade=='inserir' or especialidade=='create'):
-        message = """xpto = inserir"""
+        message = "xpto = inserir"
         context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
-    else:
-        if (especialidade==2 or especialidade=='read' or especialidade=='consultar'):
-            message = "Muito obrigada pelo seu feedback!"
-            context.bot.send_message(chat_id=update.effective_chat.id, text=message)
+    elif (especialidade==2 or especialidade=='read' or especialidade=='consultar'):
+        message = "Muito obrigada pelo seu feedback!"
+        context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
 
 
@@ -49,7 +48,7 @@ def main():
 
     
     conversation_handler = ConversationHandler(
-        entry_points=[CommandHandler('especialides', especialidades)],
+        entry_points=[CommandHandler('especialidades', especialidades)],
         states={
             STATE1: [MessageHandler(Filters.text, inputEspecialidades)],
             STATE2: [MessageHandler(Filters.text, inputAssunto)]
